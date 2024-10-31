@@ -2,19 +2,20 @@ def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     num_words = get_num_words(text)
-    counting_characters = count_characters(text)
-    print (count_characters(text))
+    chars_dict = count_characters(text)
+    print(chars_dict)  
 
-def count_characters(text):
-    my_string = text
-    lowered_string = my_string.lower()
-    number_characters = {}
-    for characters in lowered_string:
-        if characters in number_characters :
-            number_characters[characters] += 1
+
+
+def get_chars_dict(text):
+    chars = {}
+    for c in text:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
         else:
-            number_characters[characters] = 1
-    return number_characters
+            chars[lowered] = 1
+    return chars
         
 
 
